@@ -13,6 +13,7 @@
 ```bash
 npm i
 npm run dev
+npm install axios
 ```
 ## Print das telas
 
