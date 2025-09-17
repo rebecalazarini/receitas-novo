@@ -212,7 +212,7 @@ function App() {
           type="number"
           placeholder="Custo aproximado"
           value={custoAproximado}
-          onChange={(e) => setCustoAproximado(e.target.value)}
+          onChange={(e) => setCustoAproximado(e.target.value === '' ? '' : Number(e.target.value))}
           required
           min={0}
           step="0.01"
@@ -291,7 +291,7 @@ function App() {
                 <input
                   type="number"
                   value={custoAproximado}
-                  onChange={(e) => setCustoAproximado(e.target.value)}
+                  onChange={(e) => setCustoAproximado(e.target.value === '' ? '' : Number(e.target.value))}
                   placeholder="Custo aproximado"
                   min={0}
                   step="0.01"
