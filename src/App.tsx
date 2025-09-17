@@ -24,7 +24,7 @@ function App() {
   const [custoAproximado, setCustoAproximado] = useState<number | ''>('');
 
   useEffect(() => {
-    fetch('/public/receitas.json')
+    fetch('https://receitasapi-b-2025.vercel.app/receitas')
       .then((res) => res.json())
       .then((data) => {
         const receitasFormatadas = data.map((r: any) => ({
