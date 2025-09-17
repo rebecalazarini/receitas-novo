@@ -24,7 +24,7 @@ function App() {
   const [custoAproximado, setCustoAproximado] = useState<number | ''>('');
 
   useEffect(() => {
-    fetch('/receitas.json')
+    fetch('/public/receitas.json')
       .then((res) => res.json())
       .then((data) => {
         const receitasFormatadas = data.map((r: any) => ({
@@ -56,7 +56,7 @@ function App() {
     setReceitas([...receitas, {
       ...receitaCriada,
       ingredientes: typeof receitaCriada.ingredientes === 'string'
-        ? receitaCriada.ingredientes.split(',').map(i => i.trim())
+        ? receitaCriada.ingredientes.split(',').map((i: string) => i.trim())
         : receitaCriada.ingredientes
     }]);
   };
