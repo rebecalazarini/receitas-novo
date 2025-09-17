@@ -23,29 +23,28 @@ function App() {
   const [novaImg, setNovaImg] = useState('');
   const [custoAproximado, setCustoAproximado] = useState<number | ''>('');
 
-useEffect(() => {
-  // Fazendo um GET para a API para pegar as receitas em tempo real
-  fetch('https://receitasapi-b-2025.vercel.app/receitas')
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error('Falha ao buscar as receitas');
-      }
-      return res.json();
-    })
-    .then((data) => {
-      const receitasFormatadas = data.map((r: any) => ({
-        ...r,
-        ingredientes: Array.isArray(r.ingredientes)
-          ? r.ingredientes
-          : String(r.ingredientes).split(',').map((i) => i.trim()),
-      }));
-      setReceitas(receitasFormatadas);
-    })
-    .catch((error) => {
-      console.error('Erro ao carregar receitas:', error);
-    });
-}, []);
-
+  useEffect(() => {
+    // Fazendo um GET para a API para pegar as receitas em tempo real
+    fetch('https://receitasapi-b-2025.vercel.app/receitas')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Falha ao buscar as receitas');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const receitasFormatadas = data.map((r: any) => ({
+          ...r,
+          ingredientes: Array.isArray(r.ingredientes)
+            ? r.ingredientes
+            : String(r.ingredientes).split(',').map((i) => i.trim()),
+        }));
+        setReceitas(receitasFormatadas);
+      })
+      .catch((error) => {
+        console.error('Erro ao carregar receitas:', error);
+      });
+  }, []);
 
   const cadastrarReceita = async (novaReceita: Omit<Receita, 'id'>) => {
     const response = await fetch('https://receitasapi-b-2025.vercel.app/receitas', {
