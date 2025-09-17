@@ -1,5 +1,5 @@
-import './App.css'
-import { useState, useEffect } from 'react'
+import './App.css';
+import { useState, useEffect } from 'react';
 
 type Receita = {
   id: number;
@@ -23,8 +23,8 @@ function App() {
   const [novaImg, setNovaImg] = useState('');
   const [custoAproximado, setCustoAproximado] = useState<number | ''>('');
 
-  useEffect(() => {
-    // Fazendo um GET para a API para pegar as receitas em tempo real
+  // Função para carregar as receitas
+  const lerReceita = () => {
     fetch('https://receitasapi-b-2025.vercel.app/receitas')
       .then((res) => {
         if (!res.ok) {
@@ -44,6 +44,10 @@ function App() {
       .catch((error) => {
         console.error('Erro ao carregar receitas:', error);
       });
+  };
+
+  useEffect(() => {
+    lerReceita(); // Chama a função para carregar as receitas assim que o componente for montado
   }, []);
 
   const cadastrarReceita = async (novaReceita: Omit<Receita, 'id'>) => {
@@ -319,7 +323,7 @@ function App() {
                 <p>{modalReceita.modoFazer}</p>
                 <p><strong>Tipo:</strong> {modalReceita.tipo}</p>
                 <p><strong>Custo aproximado:</strong> R$ {modalReceita.custoAproximado}</p>
-                <img src={modalReceita.img} alt={modalReceita.nome} style={{maxWidth: '100%'}} />
+                <img src={modalReceita.img} alt={modalReceita.nome} style={{ maxWidth: '100%' }} />
               </>
             )}
             <button onClick={closeModal}>Fechar</button>
