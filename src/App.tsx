@@ -171,18 +171,13 @@ function App() {
         style={{ marginBottom: '2rem' }}
       >
         <h2>Cadastrar Nova Receita</h2>
-        <input
-          type="text"
-          placeholder="Nome da receita"
-          value={novonome}
-          onChange={(e) => setNovonome(e.target.value)}
-          required
+        <input type="text" placeholder="Nome da receita" value={novonome}
+        onChange={(e) => setNovonome(e.target.value)}
+        required
         />
-        <textarea
-          placeholder="Modo de preparo"
-          value={novomodoFazer}
-          onChange={(e) => setNovomodoFazer(e.target.value)}
-          required
+        <textarea placeholder="Modo de preparo" value={novomodoFazer}
+        onChange={(e) => setNovomodoFazer(e.target.value)}
+        required
         />
         <h3>Ingredientes:</h3>
         {novosIngredientes.map((ingrediente, idx) => (
