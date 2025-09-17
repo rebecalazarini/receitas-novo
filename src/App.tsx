@@ -47,7 +47,7 @@ function App() {
   };
 
   useEffect(() => {
-    lerReceita(); // Chama a função para carregar as receitas assim que o componente for montado
+    lerReceita();
   }, []);
 
   const cadastrarReceita = async (novaReceita: Omit<Receita, 'id'>) => {
@@ -246,9 +246,6 @@ function App() {
           </div>
         ))}
       </main>
-      <footer>
-        <h2>By rebecalazarini</h2>
-      </footer>
 
       {/* Modal */}
       {modalReceita && (
