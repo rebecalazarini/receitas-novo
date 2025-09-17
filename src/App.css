@@ -132,7 +132,7 @@ main {
   justify-content: flex-start;
 }
 
-form {
+.form {
   background-color: #fff;
   padding: 2rem;
   border-radius: 10px;
@@ -145,14 +145,14 @@ form {
   margin-bottom: 2rem;
 }
 
-form h2 {
+.form h2 {
   font-size: 1.8rem;
   color: var(--c1);
   margin-bottom: 1rem;
   text-align: center;
 }
 
-form h3 {
+.form h3 {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 0.5rem;
@@ -236,19 +236,4 @@ form input[type="number"] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: textfield;
-}
-
-/* Estilo para o botão de adicionar ingrediente */
-button[type="button"] {
-  background-color: #2196F3;
-  color: white;
-  padding: 8px 16px;
-  margin-top: 10px;
-  width: auto;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-button[type="button"]:hover {
-  background-color: #1976d2;
 }
